@@ -227,7 +227,7 @@ class _NewPageState extends State<NewPage> {
     final secondNumber = double.tryParse(_secondNumberController.text) ?? 0.0;
     final sum = firstNumber + secondNumber;
     setState(() {
-      _result = 'Soma: $sum';
+      _result = 'Valor do pix que vai fazer pra mim: $sum';
     });
   }
 
@@ -264,6 +264,13 @@ class _NewPageState extends State<NewPage> {
             Text(
               _result,
               style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+            ),
+            SizedBox(height: 16), 
+            Image.asset(
+              'assets/pix.jpg', 
+              width: 150, 
+              height: 150, 
+              fit: BoxFit.contain, 
             ),
           ],
         ),
