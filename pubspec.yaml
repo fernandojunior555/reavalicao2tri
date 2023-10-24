@@ -30,6 +30,7 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
+    assets: assets/pix.jpg
 
 
   # The following adds the Cupertino Icons font to your application.
@@ -50,9 +51,8 @@ dev_dependencies:
 
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec
-flutter:
-  assets:
-    - assets/pix.jpg
+
+
 # The following section is specific to Flutter packages.
 flutter:
 
