@@ -1,4 +1,5 @@
-import 'package:flutter/material.dart';
+ import 'package:flutter/material.dart';
+
 
 void main() {
   runApp(MyApp());
@@ -267,11 +268,12 @@ class _NewPageState extends State<NewPage> {
             ),
             SizedBox(height: 16), 
             Image.asset(
-              'assets/pix.jpg', 
-              width: 150, 
-              height: 150, 
-              fit: BoxFit.contain, 
-            ),
+  'assets/pix.jpg',
+  width: 150,
+  height: 150,
+  fit: BoxFit.contain,
+)
+
           ],
         ),
       ),
