@@ -1,5 +1,6 @@
- import 'package:flutter/material.dart';
 
+import 'package:flutter/material.dart';
+import 'my_home_page.dart'; // Importe o arquivo da página inicial
 
 void main() {
   runApp(MyApp());
@@ -25,12 +26,6 @@ class PageNavigationDemo extends StatefulWidget {
 
 class _PageNavigationDemoState extends State<PageNavigationDemo> {
   PageController _pageController = PageController(initialPage: 0);
-
-  @override
-  void dispose() {
-    _pageController.dispose();
-    super.dispose();
-  }
 
   void _navigateToProfilePage() {
     Navigator.of(context).push(
@@ -71,14 +66,23 @@ class _PageNavigationDemoState extends State<PageNavigationDemo> {
               _navigateToNewPage();
               _handleButtonClick();
             },
-            child: Icon(Icons.add),
+            child: Icon(Icons.arrow_forward),
+          ),
+          IconButton(
+            icon: Icon(Icons.add),
+            onPressed: () {
+              Navigator.of(context).push(
+                MaterialPageRoute(
+                  builder: (context) => MyHomePage(),
+                ),
+              );
+            },
           ),
         ],
       ),
       body: PageView(
         controller: _pageController,
         children: [
-         
           Center(
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
@@ -218,6 +222,10 @@ class NewPage extends StatefulWidget {
   _NewPageState createState() => _NewPageState();
 }
 
+
+
+
+
 class _NewPageState extends State<NewPage> {
   TextEditingController _firstNumberController = TextEditingController();
   TextEditingController _secondNumberController = TextEditingController();
@@ -228,7 +236,7 @@ class _NewPageState extends State<NewPage> {
     final secondNumber = double.tryParse(_secondNumberController.text) ?? 0.0;
     final sum = firstNumber + secondNumber;
     setState(() {
-      _result = 'Valor do pix que vai fazer pra mim: $sum';
+      _result = 'Valor do pix que vai fazer pra mim: $sum REAIS ';
     });
   }
 
@@ -236,7 +244,7 @@ class _NewPageState extends State<NewPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Nova Página'),
+        title: Text('DOAÇÃO'),
       ),
       body: Padding(
         padding: EdgeInsets.all(16.0),
@@ -247,19 +255,19 @@ class _NewPageState extends State<NewPage> {
               controller: _firstNumberController,
               keyboardType: TextInputType.number,
               decoration: InputDecoration(
-                labelText: 'Número 1',
+                labelText: 'VALOR : ', 
               ),
             ),
             TextField(
               controller: _secondNumberController,
               keyboardType: TextInputType.number,
               decoration: InputDecoration(
-                labelText: 'Número 2',
+                labelText: 'CPF',
               ),
             ),
             ElevatedButton(
               onPressed: _calculateSum,
-              child: Text('Calcular Soma'),
+              child: Text('FAZER DOAÇÃO'),
             ),
             SizedBox(height: 16),
             Text(
@@ -279,4 +287,5 @@ class _NewPageState extends State<NewPage> {
       ),
     );
   }
+  
 }
