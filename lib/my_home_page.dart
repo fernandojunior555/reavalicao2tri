@@ -1,5 +1,11 @@
 import 'package:flutter/material.dart';
 
+void main() {
+  runApp(MaterialApp(
+    home: MyHomePage(),
+  ));
+}
+
 class MyHomePage extends StatefulWidget {
   @override
   _MyHomePageState createState() => _MyHomePageState();
@@ -22,6 +28,13 @@ class _MyHomePageState extends State<MyHomePage> {
   };
 
   String _selectedOptionsText = '';
+
+  void addToCart(BuildContext context) {
+    Navigator.push(
+      context,
+      MaterialPageRoute(builder: (context) => ListViewPage(selectedOption1: _selectedOption1, selectedOption2: _selectedOption2)),
+    );
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -80,7 +93,35 @@ class _MyHomePageState extends State<MyHomePage> {
               _selectedOptionsText,
               style: TextStyle(fontSize: 18),
             ),
+            ElevatedButton(
+              onPressed: () {
+                addToCart(context);
+              },
+              child: Text('Adicionar ao Carrinho'),
+            ),
           ],
+        ),
+      ),
+    );
+  }
+}
+
+class ListViewPage extends StatelessWidget {
+  final String? selectedOption1;
+  final String? selectedOption2;
+
+  ListViewPage({this.selectedOption1, this.selectedOption2});
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: Text('Itens no Carrinho'),
+      ),
+      body: Center(
+        child: Text(
+          'Itens selecionados: $selectedOption1 - $selectedOption2',
+          style: TextStyle(fontSize: 24),
         ),
       ),
     );

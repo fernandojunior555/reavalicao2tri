@@ -1,6 +1,6 @@
-
 import 'package:flutter/material.dart';
-import 'my_home_page.dart'; // Importe o arquivo da página inicial
+import 'my_home_page.dart'; 
+
 
 void main() {
   runApp(MyApp());
@@ -150,6 +150,8 @@ class _PageNavigationDemoState extends State<PageNavigationDemo> {
       ),
     );
   }
+  
+ 
 }
 
 class ProfilePage extends StatefulWidget {
